@@ -153,3 +153,7 @@ char result(void){
     if(matrix[0][2]=='y' && matrix[1][1]=='y' && matrix[2][0]=='y') return('y');
     else return('a');
 }
+
+void points(void){
+    int a = 1;
+}
