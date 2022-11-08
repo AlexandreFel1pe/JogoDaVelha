@@ -4,6 +4,8 @@
 char matrix[3] [3];
 
 char done = 'a';
+int pointsX;
+int pointsY;
 
 void init(void);
 void display(void);
@@ -28,12 +30,15 @@ void main(void){
     done = result();
     if(done == 'y') break;
     }
+
     system("cls");
-    if(done=='x') printf("\nJogador X venceu\n");
-    else printf ("\nJogador Y venceu\n");
+
+    if(done=='x') {printf("\nJogador X venceu\n"); pointsX = pointsX + 1;}
+    else {printf ("\nJogador Y venceu\n"); pointsY = pointsY + 1;}
     printf("\n");
     display();
 
+    printf("\nJogador: X venceu %d vezes.""\nJogador: Y venceu %d vezes.\n", pointsX, pointsY);
     printf("\nDigite: 1 para jogar novamente e\nDigite: 2 para sair\n");
     scanf("%d", &sair);
     if(sair == 1){
@@ -152,8 +157,4 @@ char result(void){
 
     if(matrix[0][2]=='y' && matrix[1][1]=='y' && matrix[2][0]=='y') return('y');
     else return('a');
-}
-
-void points(void){
-    int a = 1;
 }
