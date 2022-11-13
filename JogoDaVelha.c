@@ -6,6 +6,7 @@ char matrix[3] [3];
 char done = 'a';
 int pointsX;
 int pointsY;
+int cont;
 
 void init(void);
 void display(void);
@@ -24,17 +25,20 @@ void main(void){
     playMoveX();
     done = result();
     if(done == 'x') break;
+    if(cont == 9) break;
     system("cls");
     display();
     playMoveY();
     done = result();
     if(done == 'y') break;
+    if(cont == 9) break;
     }
 
     system("cls");
 
-    if(done=='x') {printf("\nJogador X venceu\n"); pointsX = pointsX + 1;}
-    else {printf ("\nJogador Y venceu\n"); pointsY = pointsY + 1;}
+    if(done == 'x') {printf("\nJogador X venceu\n"); pointsX = pointsX + 1;}
+    if (done == 'y') {printf ("\nJogador Y venceu\n"); pointsY = pointsY + 1;}
+    else {printf("\nEmpate\n");}
     printf("\n");
     display();
 
@@ -42,6 +46,7 @@ void main(void){
     printf("\nDigite: 1 para jogar novamente e\nDigite: 2 para sair\n");
     scanf("%d", &sair);
     if(sair == 1){
+        cont = 0;
         main();
     }
     else;
@@ -88,6 +93,7 @@ void playMoveX(void)
     {
         if(matrix[x][y]==' '){
             matrix[x][y] = 'x';
+            cont = cont + 1;
         }
         else 
         {
@@ -118,6 +124,7 @@ void playMoveY(void)
     {
         if(matrix[x][y]==' '){
             matrix[x][y] = 'y';
+            cont = cont + 1;
         }
         else 
         {
